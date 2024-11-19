@@ -90,6 +90,11 @@
         min-height: 350px;
         margin-top: 20px;
     }
+
+    .section-title {
+        font-size: 34px;
+        font-weight: 500;
+    }
 </style>
 <?php
 /**
@@ -106,7 +111,7 @@ if ($ed_jobposting && jobscout_is_wp_job_manager_activated() && $job_title) {
     <section id="job-posting-section" class="top-job-section">
         <div class="container">
             <?php
-            $job_title = get_theme_mod('job_posting_section_title', __('Job Posting', 'jobscout'));
+            $job_title = get_theme_mod('job_posting_section_title', __('TOP JOBS', 'jobscout'));
             $ed_jobposting = get_theme_mod('ed_jobposting', true);
 
             if ($ed_jobposting && jobscout_is_wp_job_manager_activated() && $job_title) {
