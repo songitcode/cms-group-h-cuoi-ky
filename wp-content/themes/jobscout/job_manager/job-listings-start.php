@@ -11,8 +11,8 @@
  * @version     1.15.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 ?>
-<div class="job_listings">
+<div class="job_listings job_listings-custom">
