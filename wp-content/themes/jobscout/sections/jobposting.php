@@ -1,4 +1,8 @@
 <style>
+    body {
+        background: #F2F2F2;
+    }
+
     .box-job-category {
         display: flex;
         align-items: center;
@@ -89,6 +93,7 @@
     .card-posting {
         min-height: 350px;
         margin-top: 20px;
+        background: #fff;
     }
 
     .section-title {
