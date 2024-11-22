@@ -114,10 +114,9 @@ $company_name = get_post_meta(get_the_ID(), '_company_name', true);
 	.job-details {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: space-around;
 		padding-top: 10px;
 		width: 100%;
-
 	}
 
 	.job-details h3 {
@@ -132,6 +131,10 @@ $company_name = get_post_meta(get_the_ID(), '_company_name', true);
 
 	.job-post-date {
 		font-size: 15px
+	}
+
+	.job-post-date p {
+		margin: 8px 0px !important;
 	}
 
 	.job-details .entry-meta {
@@ -174,7 +177,7 @@ $company_name = get_post_meta(get_the_ID(), '_company_name', true);
 				<a href="<?php the_job_permalink(); ?>"><?php wpjm_the_job_title(); ?></a>
 			</h3>
 			<div class="job-post-date">
-				<p>Created <?php echo get_the_date('F j, Y'); ?></p>
+				<p>Created <?php echo get_the_date('F d, Y'); ?></p>
 			</div>
 			<div class="entry-meta">
 
@@ -215,16 +218,16 @@ $company_name = get_post_meta(get_the_ID(), '_company_name', true);
 			$job_content = get_the_content();
 
 			// Phân tách nội dung thành các đoạn
-			$paragraphs = explode("\n", $job_content); // Chia nội dung thành các đoạn bằng dấu xuống dòng
-			
-			// Hiển thị 3 đoạn đầu tiên có chứa chữ trong thẻ <li>
+			$paragraphs = explode("\n", $job_content);
+
+			// Hiển thị 3 đoạn đầu tiên
 			$count = 0;
 			if (count($paragraphs) > 0) {
 				echo '<ul class="job-description-list">';
 				foreach ($paragraphs as $paragraph) {
 					// Loại bỏ khoảng trắng và kiểm tra nếu đoạn không rỗng
 					$trimmed_paragraph = trim($paragraph);
-					if (!empty($trimmed_paragraph)) { // Chỉ hiển thị đoạn có chữ
+					if (!empty($trimmed_paragraph)) {
 						echo '<li>' . esc_html($trimmed_paragraph) . '</li>';
 						$count++;
 					}
