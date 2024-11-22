@@ -91,9 +91,10 @@
     }
 
     .card-posting {
-        min-height: 350px;
-        margin-top: 20px;
+        min-height: 320px;
+        margin-top: 10px;
         background: #fff;
+        font-size: 19px;
     }
 
     .section-title {
@@ -180,10 +181,21 @@ if ($ed_jobposting && jobscout_is_wp_job_manager_activated() && $job_title) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="job-description m-0">
-                                        <p>
-                                            <?php echo wp_trim_words(get_the_content(), 20, '...'); ?>
-                                        </p>
+                                    <div class="job-description m-0 ms-2">
+                                        <?php
+                                        $content = wp_trim_words(get_the_content(), 30, '');
+                                        $lines = explode(' ', $content);
+                                        $totalWords = count($lines);
+                                        $chunkSize = ceil($totalWords / 3);
+
+                                        $part1 = implode(' ', array_slice($lines, 0, $chunkSize));
+                                        $part2 = implode(' ', array_slice($lines, $chunkSize, $chunkSize));
+                                        $part3 = implode(' ', array_slice($lines, 2 * $chunkSize));
+                                        ?>
+
+                                        <p><?php echo $part1; ?></p>
+                                        <p><?php echo $part2; ?></p>
+                                        <p><?php echo $part3; ?></p>
                                     </div>
                                 </div>
                             </div>
