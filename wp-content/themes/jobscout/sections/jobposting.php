@@ -186,19 +186,28 @@ if ($ed_jobposting && jobscout_is_wp_job_manager_activated() && $job_title) {
                                     </div>
                                     <div class="job-description">
                                         <?php
-                                        $content = wp_trim_words(get_the_content(), 30, '');
-                                        $lines = explode(' ', $content);
-                                        $totalWords = count($lines);
-                                        $chunkSize = ceil($totalWords / 3);
+                                        // Lấy nội dung công việc
+                                        $job_content = get_the_content();
 
-                                        $part1 = implode(' ', array_slice($lines, 0, $chunkSize));
-                                        $part2 = implode(' ', array_slice($lines, $chunkSize, $chunkSize));
-                                        $part3 = implode(' ', array_slice($lines, 2 * $chunkSize));
+                                        // Phân tách nội dung thành các đoạn
+                                        $paragraphs = explode("\n", $job_content);
+
+                                        // Hiển thị 3 đoạn đầu tiên
+                                        $count = 0;
+                                        if (count($paragraphs) > 0) {
+                                            foreach ($paragraphs as $paragraph) {
+                                                // Loại bỏ khoảng trắng và kiểm tra nếu đoạn không rỗng
+                                                $trimmed_paragraph = wp_trim_words($paragraph, 20, '');
+                                                if (!empty($trimmed_paragraph)) {
+                                                    echo '<p>' . esc_html($trimmed_paragraph) . '</p>';
+                                                    $count++;
+                                                }
+                                                // Dừng khi đã lấy đủ 3 đoạn
+                                                if ($count >= 3)
+                                                    break;
+                                            }
+                                        }
                                         ?>
-
-                                        <p><?php echo $part1; ?></p>
-                                        <p><?php echo $part2; ?></p>
-                                        <p><?php echo $part3; ?></p>
                                     </div>
                                 </div>
                             </div>
