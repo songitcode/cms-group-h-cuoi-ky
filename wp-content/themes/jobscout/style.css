@@ -663,7 +663,7 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   display: inline-block;
-  background: #2ace5e;
+  background: #FF9800;
   border: 1px solid #2ace5e;
   color: #fff;
   font-weight: 700;
@@ -2307,7 +2307,7 @@ SITE BANNER SECTION
   top: 50%;
   left: 0;
   right: 0;
-  text-align: center;
+  text-align: left;
   z-index: 9;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -2368,7 +2368,7 @@ SITE BANNER SECTION
 .banner-caption .jobscout_job_filters .search_jobs div.search_location {
   float: none;
   width: auto;
-  padding-right: 0;
+  padding-right: 10px;
   display: flex;
   flex: 1;
   padding-left: 0;
@@ -2391,9 +2391,12 @@ SITE BANNER SECTION
 .banner-caption .form-wrap form .search_jobs label {
   display: none;
 }
-
+.banner-caption .jobscout_job_filters .search_jobs input{
+ 
+}
 .banner-caption .jobscout_job_filters .search_jobs input,
 .banner-caption .jobscout_job_filters .search_jobs select {
+  
   border-radius: 0;
   height: 60px;
   border-top: none;
@@ -2424,19 +2427,20 @@ SITE BANNER SECTION
 
 .banner-caption .jobscout_job_filters .search_jobs input[type="submit"] {
   padding: 0;
-  width: 60px;
-  background-image: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23fff" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>');
+  width: 200px;
+  color:#fff;
+  font-weight:700;
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: center;
-  text-indent: 70px;
+  text-indent: 10px;
   overflow: hidden;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .banner-caption .jobscout_job_filters .search_jobs input[type="submit"]:hover {
-  background-color: #fff;
-  background-image: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%232ace5e" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>');
+  background-color: #ff9800;
+  
 }
 
 /*=========================
@@ -6640,7 +6644,7 @@ RESPONSIVE STYLESHEET
 
   .banner-caption .jobscout_job_filters .search_jobs input[type="submit"] {
     background-image: none;
-    width: 100%;
+    width: 98%;
     text-indent: 0;
     margin-top: 1px;
     border-left: none;
