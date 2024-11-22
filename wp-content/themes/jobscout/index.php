@@ -15,7 +15,7 @@ get_header(); ?>
 
 <style>
     body {
-        background-color: ;
+        background-color: #f2f2f2;
     }
 
     .blog-container {
