@@ -34,7 +34,7 @@ get_header(); ?>
 
     .col {
         flex: 1 1 calc(50% - 20px);
-        margin: 10px;
+        margin: 20px 10px;
         background-color: white;
         padding: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
