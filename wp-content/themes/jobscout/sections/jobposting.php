@@ -38,6 +38,7 @@
 
     .job-title {
         text-transform: uppercase;
+        width: 100%;
     }
 
     .job-image img {
@@ -52,7 +53,11 @@
     }
 
     .job-description {
-        padding-top: 15px;
+        margin-top: 15px;
+    }
+
+    .job-description p {
+        margin: 0;
     }
 
     .job-description p::before {
@@ -61,9 +66,6 @@
         font-weight: bold;
     }
 
-    .job-description p {
-        margin: 0;
-    }
 
     .btn-view-more button:hover {
         background: #EC904C;
@@ -91,10 +93,11 @@
     }
 
     .card-posting {
+        width: 100%;
         min-height: 320px;
         margin-top: 10px;
         background: #fff;
-        font-size: 19px;
+        font-size: 16px;
     }
 
     .section-title {
@@ -149,7 +152,7 @@ if ($ed_jobposting && jobscout_is_wp_job_manager_activated() && $job_title) {
                                             <?php } ?>
                                         </div>
                                         <div class="col job-content">
-                                            <h3 class="job-title"><?php the_title(); ?></h3>
+                                            <h4 class="job-title"><?php the_title(); ?></h4>
                                             <p class="job-meta mb-1">Created: <?php the_time('F j, Y'); ?></p>
                                             <div class="job-category">
                                                 <div class="box-job-category btn-group">
@@ -181,7 +184,7 @@ if ($ed_jobposting && jobscout_is_wp_job_manager_activated() && $job_title) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="job-description m-0 ms-2">
+                                    <div class="job-description">
                                         <?php
                                         $content = wp_trim_words(get_the_content(), 30, '');
                                         $lines = explode(' ', $content);

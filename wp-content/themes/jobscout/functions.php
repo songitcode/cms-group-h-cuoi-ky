@@ -134,23 +134,20 @@ function load_more_jobs()
 							<?php } ?>
 						</div>
 						<div class="col job-content">
-							<h3 class="job-title"><?php the_title(); ?></h3>
+							<h4 class="job-title"><?php the_title(); ?></h4>
 							<p class="job-meta mb-1">Created: <?php the_time('F j, Y'); ?></p>
 							<div class="job-category">
 								<div class="box-job-category btn-group">
 									<span class="ms-2">
-										<?php
-										if (get_option('job_manager_enable_types')) {
+										<?php if (get_option('job_manager_enable_types')) {
 											$types = wpjm_get_the_job_types();
 											if (!empty($types)):
 												foreach ($types as $jobtype): ?>
 													<span class="job-type <?php echo esc_attr(sanitize_title($jobtype->slug)); ?>">
 														<?php echo esc_html($jobtype->name); ?>
 													</span>
-												<?php endforeach;
-											endif;
-										}
-										?>
+												<?php endforeach; endif;
+										} ?>
 									</span>
 									<p>
 										<?php
@@ -162,13 +159,28 @@ function load_more_jobs()
 										}
 										?>
 									</p>
-									<p><?php echo esc_html(get_post_meta(get_the_ID(), '_job_location', true)); ?></p>
+									<p>
+										<?php echo esc_html(get_post_meta(get_the_ID(), '_job_location', true)); ?>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="job-description m-0">
-						<p><?php echo wp_trim_words(get_the_content(), 20, '...'); ?></p>
+					<div class="job-description">
+						<?php
+						$content = wp_trim_words(get_the_content(), 30, '');
+						$lines = explode(' ', $content);
+						$totalWords = count($lines);
+						$chunkSize = ceil($totalWords / 3);
+
+						$part1 = implode(' ', array_slice($lines, 0, $chunkSize));
+						$part2 = implode(' ', array_slice($lines, $chunkSize, $chunkSize));
+						$part3 = implode(' ', array_slice($lines, 2 * $chunkSize));
+						?>
+
+						<p><?php echo $part1; ?></p>
+						<p><?php echo $part2; ?></p>
+						<p><?php echo $part3; ?></p>
 					</div>
 				</div>
 			</div>
