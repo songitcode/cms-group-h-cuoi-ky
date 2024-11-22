@@ -103,6 +103,7 @@ get_header(); ?>
         text-align: center;
         font-size: 24px;
         margin-bottom: 20px;
+        padding-top: 20px;
     }
 </style>
 
